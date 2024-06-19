@@ -45,6 +45,8 @@ img {
 .droppable {
     border: 2px dashed #00796b;
     border-radius: 8px;
+    /* position: absolute; Position the droppable areas absolutely */
+
     padding: 20px;
     margin: 10px;
     width: 120px;
