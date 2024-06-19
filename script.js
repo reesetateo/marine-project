@@ -33,9 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function touchMove(event) {
         if (draggedItem) {
             let touch = event.touches[0];
-            draggedItem.style.position = 'absolute';
-            draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
-            draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
+            // draggedItem.style.position = 'absolute';
+            // draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
+            // draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
+            draggedItem.style.transform = `translate(${touch.clientX}px, ${touch.clientY}px)`;
+
             
         }
     }
