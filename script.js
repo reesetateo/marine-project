@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function touchStart(event) {
         draggedItem = event.target;
-        event.preventDefault();
+        //event.preventDefault();
     }
 
     function touchMove(event) {
