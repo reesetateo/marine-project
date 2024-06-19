@@ -34,8 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (draggedItem) {
             let touch = event.touches[0];
             draggedItem.style.position = 'absolute';
-            draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
-            draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
+            // draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
+            // draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
+            const sensitivityFactor = 1.5; // Adjust this value to make it more or less sensitive
+            draggedItem.style.left = (touch.clientX - draggedItem.clientWidth / 2) * sensitivityFactor + 'px';
+            draggedItem.style.top = (touch.clientY - draggedItem.clientHeight / 2) * sensitivityFactor + 'px';
         }
     }
 
