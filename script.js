@@ -51,18 +51,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function drop(event) {
+        // event.preventDefault();
+        // const id = event.dataTransfer.getData('text');
+        // const draggable = document.getElementById(id);
+        // const droppable = event.target.closest('.droppable'); // Find the closest droppable element
+
+        // if (droppable.getAttribute('data-name') === id) {
+        //     droppable.appendChild(draggable);
+        //     draggable.style.border = '2px solid #4caf50';
+        //     checkCompletion();
+        // } else {
+        //     alert('Wrong match! Try again.');
+        // }
+
+       
         event.preventDefault();
         const id = event.dataTransfer.getData('text');
         const draggable = document.getElementById(id);
         const droppable = event.target.closest('.droppable'); // Find the closest droppable element
-
+    
         if (droppable.getAttribute('data-name') === id) {
             droppable.appendChild(draggable);
             draggable.style.border = '2px solid #4caf50';
             checkCompletion();
+            // Add the flip class to the draggable element
+            draggable.classList.add('flip');
+            // Hide the draggable element after the animation completes
+            setTimeout(() => {
+               // alert(`You matched the ${id}!`);
+               const placeholder = droppable.querySelector('.placeholder');
+               placeholder.textContent = droppable.getAttribute('data-message');
+                
+                draggable.style.display = 'none';
+                
+            }, 500); // 500 milliseconds
         } else {
             alert('Wrong match! Try again.');
         }
+    
+    
+        
+        
     }
 
     function checkCompletion() {
@@ -82,6 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
             draggable.style.border = '2px solid #00796b';
             draggable.style.display = 'inline-block'; // Show the images again
             imageContainer.appendChild(draggable);
+        });
+        droppables.forEach(droppable => {
+            const placeholder = droppable.querySelector('.placeholder');
+            if (placeholder) {
+                placeholder.textContent = '';
+            }
         });
 
         niceJobButton.style.display = 'none';

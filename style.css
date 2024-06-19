@@ -109,6 +109,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+
 }
 
 button:hover {
@@ -117,6 +118,7 @@ button:hover {
 
 #nice-job-button {
     display: none;
+
 }
 
 .about-content {
@@ -127,3 +129,36 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.placeholder {
+    font-size: 12px; /* Set the font size to be smaller */
+    line-height: 1; /* Set the line height to reduce spacing */
+    /* Add any other desired styles for the placeholder text */
+}
+/* @keyframes flip {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+ Apply the flip animation to the card 
+.flipped {
+    animation: flip 0.5s ease;
+} */
+/* Define the flip animation */
+.flip {
+    animation: flip 0.5s;
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
