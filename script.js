@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     draggables.forEach(draggable => {
         draggable.addEventListener('dragstart', dragStart);
+        draggable.addEventListener('touchstart', touchStart);
+        draggable.addEventListener('touchmove', touchMove);
+        draggable.addEventListener('touchend', touchEnd);
     });
 
     droppables.forEach(droppable => {
@@ -16,8 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resetButton.addEventListener('click', resetGame);
 
+    let draggedItem = null;
+
     function dragStart(event) {
         event.dataTransfer.setData('text/plain', event.target.id);
+    }
+
+    function touchStart(event) {
+        draggedItem = event.target;
+        event.preventDefault();
+    }
+
+    function touchMove(event) {
+        if (draggedItem) {
+            let touch = event.touches[0];
+            draggedItem.style.position = 'absolute';
+            draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
+            draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
+        }
+    }
+
+    function touchEnd(event) {
+        draggedItem = null;
     }
 
     function dragOver(event) {
@@ -51,27 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // function resetGame() {
-    //     droppables.forEach(droppable => {
-    //         while (droppable.firstChild) {
-    //             droppable.removeChild(droppable.firstChild);
-    //         }
-    //     });
-
-    //     draggables.forEach(draggable => {
-    //         draggable.style.border = '2px solid #00796b';
-    //         imageContainer.appendChild(draggable);
-    //     });
-
-    //     niceJobButton.style.display = 'none';
-    // }
     function resetGame() {
         draggables.forEach(draggable => {
             draggable.style.border = '2px solid #00796b';
             draggable.style.display = 'inline-block'; // Show the images again
             imageContainer.appendChild(draggable);
         });
-    
+
         niceJobButton.style.display = 'none';
     }
 });
