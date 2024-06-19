@@ -6,7 +6,52 @@ body {
 
 h1 {
     color: #00796b;
+   
 }
+
+.title {
+    text-align: center;
+    font-size: 26px; /* Increase the font size */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Use a different font */
+    margin-top: 20px; /* Add some top margin for spacing */
+}
+
+.content-bar {
+    /* position: fixed; */
+    top: 100;
+    left: 0;
+    width: 100%;
+    background-color: #7bd1c7;
+    color: white;
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+  
+  .content-bar h1 {
+    margin: 0;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 40px; /* Increased margin between links */
+    padding: 10px; /* Increased padding for easier clicking */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Make the font bold */
+  }
+  
+  nav a:hover {
+    background-color: #004d40;
+  }
+
+
 
 /* .container {
     display: flex;
@@ -72,4 +117,13 @@ button:hover {
 
 #nice-job-button {
     display: none;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

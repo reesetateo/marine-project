@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Marine Animals Matching Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="title">Marine Animals Matching Game</h1>
+
+  <div class="content-bar">
+
+      <nav>
+        <a href="index.html" class="nav-link" data-page="about">About</a>
+        <a href="shark-game.html" class="nav-link" data-page="shark-game"> Shark Game</a>
+        <a href="dolphin-game.html" class="nav-link" data-page="dolphin-game"> Dolphin Game</a>
+        <a href="turtle-game.html" class="nav-link" data-page="turtle-game"> Turtle Game</a>
+
+      </nav>
+    </div>
+    <div id="game" class="page">
+      <!-- Your existing game content here -->
+    
+  <!-- <h1>Match the Marine Animals</h1> -->
+  <div class="container">
+      <div class="images" id="image-container">
+          <img src="greenturtle.jpg" alt="green" class="draggable" id="green" draggable="true">
+          <img src="leatherback.jpg" alt="leatherback" class="draggable" id="leatherback" draggable="true">
+          <img src="loggerhead.jpg" alt="loggerhead" class="draggable" id="loggerhead" draggable="true">
+      </div>
+      <div class="names">
+          <div class="droppable" data-name="green">Green</div>
+          <div class="droppable" data-name="leatherback">Leatherback</div>
+          <div class="droppable" data-name="loggerhead">Loggerhead</div>
+      </div>
+  
+  </div>
+  <button id="reset-button">Reset</button>
+  <button id="nice-job-button" style="display:none;">Nice Job!</button>
+ 
+</div>
+<div id="about" class="page" style="display:none;">
+  <h2>About</h2>
+  <p>This is an educational game about marine animals.</p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
