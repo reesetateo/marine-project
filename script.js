@@ -25,24 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
         event.dataTransfer.setData('text/plain', event.target.id);
     }
 
-    // function touchStart(event) {
-    //     draggedItem = event.target;
-    //     event.preventDefault();
-    // }
+    function touchStart(event) {
+        draggedItem = event.target;
+        event.preventDefault();
+    }
 
-    // function touchMove(event) {
-    //     if (draggedItem) {
-    //         let touch = event.touches[0];
-    //         draggedItem.style.position = 'absolute';
-    //         draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
-    //         draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
+    function touchMove(event) {
+        if (draggedItem) {
+            let touch = event.touches[0];
+            draggedItem.style.position = 'absolute';
+            draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
+            draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
             
-    //     }
-    // }
+        }
+    }
 
-    // function touchEnd(event) {
-    //     draggedItem = null;
-    // }
+    function touchEnd(event) {
+        draggedItem = null;
+    }
 
     
 
