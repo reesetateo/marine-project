@@ -44,26 +44,23 @@ document.addEventListener('DOMContentLoaded', () => {
     //     draggedItem = null;
     // }
 
-    let touchStartX, touchStartY;
 
     function touchStart(event) {
         draggedItem = event.target;
         const touch = event.touches[0];
-        const offsetX = touch.clientX - draggedItem.getBoundingClientRect().left;
-        const offsetY = touch.clientY - draggedItem.getBoundingClientRect().top;
-        draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        draggedItem.style.transition = 'none'; // Disable transitions for smoother dragging
+        draggedItem.style.transform = `translate(${touch.clientX - draggedItem.clientWidth / 2}px, ${touch.clientY - draggedItem.clientHeight / 2}px)`;
     }
     
     function touchMove(event) {
         if (draggedItem) {
             const touch = event.touches[0];
-            const offsetX = touch.clientX - draggedItem.getBoundingClientRect().left;
-            const offsetY = touch.clientY - draggedItem.getBoundingClientRect().top;
-            draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            draggedItem.style.transform = `translate(${touch.clientX - draggedItem.clientWidth / 2}px, ${touch.clientY - draggedItem.clientHeight / 2}px)`;
         }
     }
     
     function touchEnd(event) {
+        draggedItem.style.transition = ''; // Re-enable transitions
         draggedItem = null;
     }
     
