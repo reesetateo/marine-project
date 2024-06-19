@@ -25,44 +25,25 @@ document.addEventListener('DOMContentLoaded', () => {
         event.dataTransfer.setData('text/plain', event.target.id);
     }
 
-    // function touchStart(event) {
-    //     draggedItem = event.target;
-    //     event.preventDefault();
-    // }
-
-    // function touchMove(event) {
-    //     if (draggedItem) {
-    //         let touch = event.touches[0];
-    //         draggedItem.style.position = 'absolute';
-    //         draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
-    //         draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
-            
-    //     }
-    // }
-
-    // function touchEnd(event) {
-    //     draggedItem = null;
-    // }
-
-
     function touchStart(event) {
         draggedItem = event.target;
-        const touch = event.touches[0];
-        draggedItem.style.transition = 'none'; // Disable transitions for smoother dragging
-        draggedItem.style.transform = `translate(${touch.clientX - draggedItem.clientWidth / 2}px, ${touch.clientY - draggedItem.clientHeight / 2}px)`;
+        event.preventDefault();
     }
-    
+
     function touchMove(event) {
         if (draggedItem) {
-            const touch = event.touches[0];
-            draggedItem.style.transform = `translate(${touch.clientX - draggedItem.clientWidth / 2}px, ${touch.clientY - draggedItem.clientHeight / 2}px)`;
+            let touch = event.touches[0];
+            draggedItem.style.position = 'absolute';
+            draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
+            draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
+            
         }
     }
-    
+
     function touchEnd(event) {
-        draggedItem.style.transition = ''; // Re-enable transitions
         draggedItem = null;
     }
+
     
 
     function dragOver(event) {
