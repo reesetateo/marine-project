@@ -25,26 +25,48 @@ document.addEventListener('DOMContentLoaded', () => {
         event.dataTransfer.setData('text/plain', event.target.id);
     }
 
-    function touchStart(event) {
-        draggedItem = event.target;
-        event.preventDefault();
-    }
+    // function touchStart(event) {
+    //     draggedItem = event.target;
+    //     event.preventDefault();
+    // }
 
-    function touchMove(event) {
-        if (draggedItem) {
-            let touch = event.touches[0];
-            draggedItem.style.position = 'absolute';
-            // draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
-            // draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
-            const sensitivityFactor = 2.5; // Adjust this value to make it more or less sensitive
-            draggedItem.style.left = (touch.clientX - draggedItem.clientWidth / 2) * sensitivityFactor + 'px';
-            draggedItem.style.top = (touch.clientY - draggedItem.clientHeight / 2) * sensitivityFactor + 'px';
-        }
-    }
+    // function touchMove(event) {
+    //     if (draggedItem) {
+    //         let touch = event.touches[0];
+    //         draggedItem.style.position = 'absolute';
+    //         draggedItem.style.left = touch.clientX - draggedItem.clientWidth / 2 + 'px';
+    //         draggedItem.style.top = touch.clientY - draggedItem.clientHeight / 2 + 'px';
+            
+    //     }
+    // }
 
-    function touchEnd(event) {
+    // function touchEnd(event) {
+    //     draggedItem = null;
+    // }
+
+    let touchStartX, touchStartY;
+
+function touchStart(event) {
+    draggedItem = event.target;
+    touchStartX = event.touches[0].clientX - draggedItem.getBoundingClientRect().left;
+    touchStartY = event.touches[0].clientY - draggedItem.getBoundingClientRect().top;
+    event.preventDefault(); // Prevent default touch action (scrolling, etc.)
+}
+
+function touchMove(event) {
+    if (draggedItem) {
+        let touch = event.touches[0];
+        let offsetX = touch.clientX - touchStartX;
+        let offsetY = touch.clientY - touchStartY;
+        draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    }
+}
+
+function touchEnd(event) {
+    if (draggedItem) {
         draggedItem = null;
     }
+}
 
     function dragOver(event) {
         event.preventDefault();
