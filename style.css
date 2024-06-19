@@ -10,15 +10,25 @@ h1 {
 }
 
 .title {
-    text-align: center;
-    font-size: 26px; /* Increase the font size */
+    text-align: left;
+    font-size: 14px; /* Increase the font size */
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Use a different font */
     margin-top: 20px; /* Add some top margin for spacing */
+    color:white;
+}
+
+.maxtitle {
+    text-align: left;
+    font-size: 30px; /* Increase the font size */
+    font-family: 'lobster', sans-serif; /* Use a different font */
+    margin-top: 20px; /* Add some top margin for spacing */
+    color:white;
+
 }
 
 .content-bar {
     /* position: fixed; */
-    top: 100;
+    top: 0;
     left: 0;
     width: 100%;
     background-color: #7bd1c7;
@@ -51,6 +61,11 @@ h1 {
     background-color: #004d40;
   }
 
+  a {
+    text-decoration: none;
+
+
+  }
 
 
 /* .container {
@@ -61,7 +76,7 @@ h1 {
 } */
 .container {
     flex-direction: row;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    flex-wrap: wrap; /*Allow items to wrap to the next line*/
 }
 
 /* .images, .names {
