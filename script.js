@@ -46,27 +46,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let touchStartX, touchStartY;
 
-function touchStart(event) {
-    draggedItem = event.target;
-    touchStartX = event.touches[0].clientX - draggedItem.getBoundingClientRect().left;
-    touchStartY = event.touches[0].clientY - draggedItem.getBoundingClientRect().top;
-    event.preventDefault(); // Prevent default touch action (scrolling, etc.)
-}
-
-function touchMove(event) {
-    if (draggedItem) {
-        let touch = event.touches[0];
-        let offsetX = touch.clientX - touchStartX;
-        let offsetY = touch.clientY - touchStartY;
+    function touchStart(event) {
+        draggedItem = event.target;
+        const touch = event.touches[0];
+        const offsetX = touch.clientX - draggedItem.getBoundingClientRect().left;
+        const offsetY = touch.clientY - draggedItem.getBoundingClientRect().top;
         draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     }
-}
-
-function touchEnd(event) {
-    if (draggedItem) {
+    
+    function touchMove(event) {
+        if (draggedItem) {
+            const touch = event.touches[0];
+            const offsetX = touch.clientX - draggedItem.getBoundingClientRect().left;
+            const offsetY = touch.clientY - draggedItem.getBoundingClientRect().top;
+            draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        }
+    }
+    
+    function touchEnd(event) {
         draggedItem = null;
     }
-}
+    
 
     function dragOver(event) {
         event.preventDefault();
