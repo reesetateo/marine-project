@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Animals Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Match the Marine Animals</h1>
+    <div class="container">
+        <div class="images" id="image-container">
+            <img src="dolphin.jpg" alt="Dolphin" class="draggable" id="dolphin" draggable="true">
+            <img src="shark.jpg" alt="Shark" class="draggable" id="shark" draggable="true">
+            <img src="turtle.jpg" alt="Turtle" class="draggable" id="turtle" draggable="true">
+        </div>
+        <div class="names">
+            <div class="droppable" data-name="dolphin">Dolphin</div>
+            <div class="droppable" data-name="shark">Shark</div>
+            <div class="droppable" data-name="turtle">Turtle</div>
+        </div>
+    
+    </div>
+    <button id="reset-button">Reset</button>
+    <button id="nice-job-button" style="display:none;">Nice Job!</button>
+    <script src="script.js"></script>
+</body>
+</html>
+

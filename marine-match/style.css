@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #e0f7fa;
+}
+
+h1 {
+    color: #00796b;
+}
+
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+} */
+.container {
+    flex-direction: row;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+/* .images, .names {
+    margin: 10px;
+} */
+.images, .names {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center;
+    align-items: flex-start;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.draggable {
+    border: 2px solid #00796b;
+    border-radius: 8px;
+}
+
+.droppable {
+    border: 2px dashed #00796b;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 120px;
+    height: 240px;
+    line-height: 80px;
+    color: #00796b;
+    font-weight: bold;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+#nice-job-button {
+    display: none;
+}
